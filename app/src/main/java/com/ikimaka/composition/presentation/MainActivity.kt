@@ -1,7 +1,8 @@
-package com.ikimaka.composition
+package com.ikimaka.composition.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.ikimaka.composition.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
