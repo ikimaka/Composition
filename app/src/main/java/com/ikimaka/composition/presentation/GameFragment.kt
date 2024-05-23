@@ -18,11 +18,12 @@ import com.ikimaka.composition.domain.entity.Level
 class GameFragment: Fragment() {
 
     private lateinit var level: Level
+
+    private val viewModelFactory by lazy {
+        GameViewModelFactory(level, requireActivity().application)
+    }
     private val viewModel: GameViewModel by lazy {
-        ViewModelProvider(
-            this,
-            ViewModelProvider.AndroidViewModelFactory.getInstance(requireActivity().application)
-        ).get(GameViewModel::class.java)
+        ViewModelProvider(this, viewModelFactory).get(GameViewModel::class.java)
     }
 
     private val tvOptions by lazy {
@@ -57,7 +58,6 @@ class GameFragment: Fragment() {
 
         observeViewModel()
         setClickListenersToOptions()
-        viewModel.startGame(level)
     }
     override fun onDestroyView() {
         super.onDestroyView()
