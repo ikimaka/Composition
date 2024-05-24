@@ -60,14 +60,14 @@ class GameViewModel(private val application: Application, private val level: Lev
     val gameResult: LiveData<GameResult>
         get() = _gameResult
 
-
     private var countOfRightAnswers = 0
     private var countOfQuestions = 0
-
 
     init {
         startGame()
     }
+
+
     private fun startGame() {
         getGameSettings()
         startTimer()
